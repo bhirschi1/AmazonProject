@@ -14,16 +14,18 @@ namespace AmazonProject.Components
         {
             repo = temp;
         }
-
+        //this is when a category is selected and we filter the results down to just that category
         public IViewComponentResult Invoke()
         {
-            ViewBag.SelectedType = RouteData?.Values["catType"];
+            //ViewBag is connected to the catType as found on the list of categories on the Default.cshtml page
+            ViewBag.catType = RouteData?.Values["catType"];
 
             var categories = repo.Books
                 .Select(x => x.Category)
                 .Distinct()
                 .OrderBy(x => x);
-
+            //this was for debugging
+            //Console.WriteLine($"CategoriesViewComponent invoked. Selected category: {ViewBag.catType}");
             return View(categories);
         }
     }

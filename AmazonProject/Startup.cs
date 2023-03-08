@@ -34,6 +34,9 @@ namespace AmazonProject
             });
             // Add the AddScoped with the IAmazonProj... and EFAmazonProject... created in the Models folder
             services.AddScoped<IAmazonProjectRepository, EFAmazonProjectRepository>();
+            services.AddRazorPages();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,24 +48,29 @@ namespace AmazonProject
             }
 
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
+
+            //Adjust the endpoints to account for clicking a filter with a category, or with a category and a
+            //page number or with both
 
             app.UseEndpoints(endpoints =>
             {
+                //Be sure to keep the names inside the {} the same as found on the cshtml pages
                 endpoints.MapControllerRoute("typepage",
-                    "{Category}/Page{pageNum}",
+                    "{catType}/Page{pageNum}",
                     new { Controller = "Home", action = "Index" });
-                endpoints.MapControllerRoute(
-                    name: "Paging",
-                    pattern: "{pageNum}",
-                    defaults: new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("Paging",
+                    "{pageNum}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapControllerRoute("catType",
-                    "{Category}",
+                    "{catType}",
                     new { Controller = "Home", action = "Index", pageNum = 1 });
 
                 endpoints.MapDefaultControllerRoute();
+                endpoints.MapRazorPages();
             });
         }
     }

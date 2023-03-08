@@ -3,6 +3,7 @@
 
 @model Books
 
+<!--This page displays info for each book and includes a button to purchase the book-->
 <div class="card card-outline-primary m-1 p-1">
     <div class="bg-faded p-1">
         <h4>
@@ -17,4 +18,13 @@
     <div class="card-text p-1">Classification: @Model.Classification</div>
     <div class="card-text p-1">Category: @Model.Category</div>
     <div class="card-text p-1">Number of Pages: @Model.PageCount</div>
+
+    <!-- This form sends the BookId as a hidden input to the Purchase.cshtml.cs page and it is added to the cart there-->
+    <form method="post" asp-page="/Purchase">
+        <input type="hidden" asp-for="@Model.BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end">Purchase</button>
+        </span>
+    </form>
 </div>
