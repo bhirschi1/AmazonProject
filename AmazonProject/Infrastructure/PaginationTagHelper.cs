@@ -45,7 +45,7 @@ namespace AmazonProject.Infrastructure
             {
                 TagBuilder tb = new TagBuilder("a");
 
-                tb.Attributes["href"] = uh.Action(PageAction, new { pageNum = i });
+                tb.Attributes["href"] = uh.Action(PageAction, new { PageNum = i });
                 if (PageClassesEnabled)
                 {
                     tb.AddCssClass(PageClass);
