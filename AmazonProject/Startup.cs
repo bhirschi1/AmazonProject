@@ -50,6 +50,18 @@ namespace AmazonProject
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage",
+                    "{Category}/Page{pageNum}",
+                    new { Controller = "Home", action = "Index" });
+                endpoints.MapControllerRoute(
+                    name: "Paging",
+                    pattern: "{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("catType",
+                    "{Category}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
                 endpoints.MapDefaultControllerRoute();
             });
         }
