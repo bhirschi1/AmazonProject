@@ -5,13 +5,13 @@
 
 <div class="d-grid gap-2">
     <!--This link goes back to home and leaves the catType as null-->
-    <a asp-controller="Home" asp-action="Index" asp-route-catType="" asp-route-pageNum="1" class="btn btn-outline-secondary">Home</a>
+    <a asp-controller="Home" asp-action="Index" asp-route-catType="" asp-route-pageNum="1" class="btn btn-outline-secondary btn-lg m-1 p-1">Home</a>
 
     @foreach (string c in Model)
 // make sure that each category is listed as an option for a filter. Keep the selected on highlighted
     {
         <a asp-controller="Home" asp-action="Index" asp-route-catType="@c" asp-route-pageNum="1"
-           class="btn @(ViewBag.catType == c ? "btn-primary" : "btn-outline-secondary")">@c</a>
+           class="btn btn-lg m-1 p-1 @(ViewBag.catType == c ? "btn-primary" : "btn-outline-secondary")">@c</a>
     }
 
 </div>
