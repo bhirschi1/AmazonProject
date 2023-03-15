@@ -9,7 +9,7 @@ namespace AmazonProject.Models
     {
         public List<CartItem> Items { get; set; } = new List<CartItem>();
 
-        public void AddItem (Books book, int qty)
+        public virtual void AddItem (Books book, int qty)
         {
             CartItem line = Items
                 .Where(b => b.Book.BookId == book.BookId)
@@ -27,6 +27,16 @@ namespace AmazonProject.Models
             {
                 line.Quantity += qty;
             }
+        }
+        
+        public virtual void RemoveItem (Books book)
+        {
+            Items.RemoveAll(x => x.Book.BookId == book.BookId);
+        }
+
+        public virtual void ClearCart()
+        {
+            Items.Clear();
         }
 
         public double CalculateTotal()
