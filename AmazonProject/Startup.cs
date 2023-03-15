@@ -34,6 +34,7 @@ namespace AmazonProject
             });
             // Add the AddScoped with the IAmazonProj... and EFAmazonProject... created in the Models folder
             services.AddScoped<IAmazonProjectRepository, EFAmazonProjectRepository>();
+            services.AddScoped<IBuyRepository, EFBuyRepository>();
             services.AddRazorPages();
             services.AddDistributedMemoryCache();
             services.AddSession();

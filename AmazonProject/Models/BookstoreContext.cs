@@ -20,6 +20,8 @@ namespace AmazonProject.Models
         }
 
         public DbSet<Books> Books { get; set; }
+        //Include this DbSet when updating the db
+        public DbSet<Buy> Buys { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

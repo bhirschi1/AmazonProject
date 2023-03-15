@@ -3,6 +3,7 @@
 @{
 }
 
+<!--This displays the cart to the user before they can either checkout or go back to shopping-->
 <table class="table table-bordered table-striped">
 
     <thead>
@@ -28,7 +29,7 @@
                 <form method="post" asp-page-handler="Remove">
                     <input type="hidden" name="bookId" value="@i.Book.BookId" />
                     <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
-                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-sm btn-danger">Remove</button>
                 </form>
             </td>
 
@@ -46,5 +47,5 @@
 
 <div>
     <a class="btn btn-primary btn-lg btn-block" href="@Model.ReturnUrl">Continue Shopping</a>
-    <a class="btn btn-primary btn-lg btn-block" >Checkout</a>
+    <a class="btn btn-primary btn-lg btn-block" asp-controller="Buy" asp-action="Checkout" >Checkout</a>
 </div>

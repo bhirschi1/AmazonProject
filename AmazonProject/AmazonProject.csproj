@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.22">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +18,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\fontawesome\4.7.0\.nupkg.metadata" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\.signature.p7s" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\Content\font-awesome.css" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\Content\font-awesome.min.css" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\fonts\fontawesome-webfont.eot" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\fonts\fontawesome-webfont.ttf" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\fonts\fontawesome-webfont.woff" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\Content\fonts\FontAwesome.otf" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\fontawesome.4.7.0.nupkg" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\fontawesome.4.7.0.nupkg.sha512" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\fontawesome.nuspec" />
+    <None Include="wwwroot\lib\fontawesome\4.7.0\tools\install.ps1" />
   </ItemGroup>
 
 </Project>
